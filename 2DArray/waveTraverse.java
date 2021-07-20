@@ -72,7 +72,14 @@ private static void exitPointOfMatrix(int[][] arr,int row,int col){
     }
 }
 
-
+public static void diagonalprint(int[][] arr){
+    for(int gap=0; gap<arr[0].length;gap++){
+        for(int i=0,j=gap; i<arr.length,j<arr[0].length; i++,j++){
+            System.out.print(arr[i][j]+ "");
+        }
+        System.out.println();
+    }
+}
 
 
  public static void main(String[] args){
@@ -90,7 +97,8 @@ for(int i=0;i<arr.length;i++){
     //    System.out.println();
       //  row_wise_traverse(arr);
 
-        exitPointOfMatrix(arr,row,col);
+    //    exitPointOfMatrix(arr,row,col);
+    diagonalprint(arr);
 
 
  }
