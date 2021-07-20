@@ -37,23 +37,61 @@ for(int i=0; i<arr.length; i++){
     }
 }
 
+private static void exitPointOfMatrix(int[][] arr,int row,int col){
+    int i=0, j=0,d=0;
+    while(true){
+        d = (d + arr[i][j]) % 4;
+        if(d==0){ // start move in east col++;
+             j++;
+             if(j==col){
+                 System.out.print(i +" "+ (j-1));
+                 break;
+             }
+        }else if(d==1){ // start move in south row++
+        i++;
+             if(i==row){
+                 System.out.print(i-1 +"  " +  j);
+                 break;
+             }
+
+        }else if(d==2){ // start move in west col--
+        j--;
+             if(j==-1){
+                 System.out.print(i +" "+ (j+1));
+                 break;
+             }
+
+        }else{ // d=3 start move in north row--
+        i--;
+             if(i==-1){
+                 System.out.print(i+1 +" "+ j);
+                 break;
+             }
+
+        }
+    }
+}
+
 
 
 
  public static void main(String[] args){
-int n = scn.nextInt();
-int m = scn.nextInt();
+int row = scn.nextInt();
+int col = scn.nextInt();
 
-int[][] arr = new int[n][m];
+int[][] arr = new int[row][col];
 for(int i=0;i<arr.length;i++){
     for(int j=0; j<arr[0].length;j++){
         arr[i][j]= scn.nextInt();
     }
 }
-        System.out.println();
-        column_wise_traverse(arr);
-        System.out.println();
-        row_wise_traverse(arr);
+    //    System.out.println();
+      //  column_wise_traverse(arr);
+    //    System.out.println();
+      //  row_wise_traverse(arr);
+
+        exitPointOfMatrix(arr,row,col);
+
 
  }
 }
