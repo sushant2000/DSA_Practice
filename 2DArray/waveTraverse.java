@@ -81,6 +81,36 @@ public static void diagonalprint(int[][] arr){
     }
 }
 
+public static void saddlePoint(int[][] arr){
+    int row = arr.length;
+    int col = arr[0].length;
+
+    for(int r=0; r<row; r++){
+        int min = (int)1e9;
+        int c = 0;
+
+    for(int j=0; j < col; j++){
+        if(arr[r][j]<min){
+            min = arr[r][j];
+            c = j;
+        }
+    }
+    boolean saddlepoint = true;
+    for(int i = 0; i < row; i++){
+        if(arr[i][c] > min){
+            saddlepoint = false;
+          break;
+        }
+    }
+
+        if(saddlepoint==true){
+         System.out.println("Saddle point " + min);
+         return;
+      }
+    }
+     System.out.println("0 Saddle point");
+}
+
 
  public static void main(String[] args){
 int row = scn.nextInt();
@@ -99,7 +129,8 @@ for(int i=0;i<arr.length;i++){
 
     //    exitPointOfMatrix(arr,row,col);
     System.out.println();
-    diagonalprint(arr);
+    //diagonalprint(arr);
+    saddlePoint(arr);
 
 
  }
