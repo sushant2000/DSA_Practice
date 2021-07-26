@@ -126,6 +126,41 @@ private static void searchInSortedArray(int[][] arr , int data){
     System.out.println("Not Found");
 }
 
+private static void rotate90deg(int[][]arr){
+    int len = arr.length;
+    for(int i = 0; i < len; i++){
+        for(int j = i; j < len; j++){
+            int temp = arr[i][j];
+            arr[i][j] = arr[j][i];
+            arr[j][i] = temp;
+        }
+    }
+
+    int c1 = 0 , c2 = len-1;
+    while(c1 < c2){
+     for(int r = 0; r < len; r++){
+         int elm1 = arr[r][c1];
+         int elm2 = arr[r][c2];
+
+         arr[r][c1] = elm2;
+         arr[r][c2] = elm1;
+     }
+         c1++;
+         c2--; 
+
+    } 
+}
+
+
+public static void display(int[][]arr){
+    for(int i = 0; i < arr.length; i++){
+        for(int j = 0; j < arr[0].length; j++){
+            System.out.print(arr[i][j]+ " ");
+        }
+       System.out.println();
+    }
+}
+
 
 public static void main(String[] args){
 int row = scn.nextInt();
@@ -146,8 +181,11 @@ for(int i=0;i<arr.length;i++){
     //System.out.println();
     //diagonalprint(arr);
     //saddlePoint(arr);
-   int data = scn.nextInt();
-   searchInSortedArray(arr,data);
+  // int data = scn.nextInt();
+   //searchInSortedArray(arr,data);
+   System.out.println();
+   rotate90deg(arr);
+   display(arr);
 
  }
 }
