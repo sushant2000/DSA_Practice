@@ -1,10 +1,9 @@
 import java.util.Scanner;
 import java.util.Arrays;
 public class waveTraverse{
- public static Scanner scn = new Scanner(System.in);
+public static Scanner scn = new Scanner(System.in);
 
-private static void column_wise_traverse(int[][] arr){
-     
+private static void column_wise_traverse(int[][] arr){     
 for(int j=0; j<arr[0].length; j++){
     if(j%2==0){
         for(int i=0;i<arr.length;i++){
@@ -20,10 +19,9 @@ for(int j=0; j<arr[0].length; j++){
 }
 
 
-
 private static void row_wise_traverse(int[][] arr){
-     
-for(int i=0; i<arr.length; i++){
+
+     for(int i=0; i<arr.length; i++){
     if(i%2==0){
         for(int j=0;j<arr[0].length;j++){
             System.out.print(arr[i][j] + " ");
@@ -35,7 +33,7 @@ for(int i=0; i<arr.length; i++){
         }
         System.out.println();
     }
-}
+ }
 
 private static void exitPointOfMatrix(int[][] arr,int row,int col){
     int i=0, j=0,d=0;
@@ -72,7 +70,7 @@ private static void exitPointOfMatrix(int[][] arr,int row,int col){
     }
 }
 
-public static void diagonalprint(int[][] arr){
+private static void diagonalprint(int[][] arr){
     for(int gap=0; gap<arr[0].length;gap++){
         for(int i=0,j=gap; i<arr.length && j<arr[0].length ; i++,j++){
             System.out.print(arr[i][j]+ " ");
@@ -81,7 +79,7 @@ public static void diagonalprint(int[][] arr){
     }
 }
 
-public static void saddlePoint(int[][] arr){
+private static void saddlePoint(int[][] arr){
     int row = arr.length;
     int col = arr[0].length;
 
@@ -111,8 +109,25 @@ public static void saddlePoint(int[][] arr){
      System.out.println("0 Saddle point");
 }
 
+private static void searchInSortedArray(int[][] arr , int data){
+    int i = arr.length-1,j=0;
+    while(i>=0 && j<=arr[0].length){
+        if(arr[i][j]==data){
+            System.out.print(i + " "+ j);
+            return;
+        }
+        else if(arr[i][j]<data){
+            j++;
+        }
+        else{
+            i--;
+        }
+    }
+    System.out.println("Not Found");
+}
 
- public static void main(String[] args){
+
+public static void main(String[] args){
 int row = scn.nextInt();
 int col = scn.nextInt();
 
@@ -125,13 +140,14 @@ for(int i=0;i<arr.length;i++){
     //    System.out.println();
       //  column_wise_traverse(arr);
     //    System.out.println();
-      //  row_wise_traverse(arr);
+    //    row_wise_traverse(arr);
 
     //    exitPointOfMatrix(arr,row,col);
-    System.out.println();
+    //System.out.println();
     //diagonalprint(arr);
-    saddlePoint(arr);
-
+    //saddlePoint(arr);
+   int data = scn.nextInt();
+   searchInSortedArray(arr,data);
 
  }
 }
