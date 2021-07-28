@@ -14,10 +14,23 @@ public class conversion {
       }
 return count;
  }
+
+ private static long decimalToAnyBase(int num , int base){
+     long ans = 0, p = 1;
+     while(num>0){
+         int rem = num % base;
+         num = num / base;
+
+         ans = rem * p + ans;
+         p = p*10;
+     }
+     return ans;
+ }
     public static void main(String[] args){
   int n = scn.nextInt();
   int d = scn.nextInt();
-  int freq = digit_frequency(n, d);
+ // int freq = digit_frequency(n, d);
+  long freq = decimalToAnyBase(n, d);
   System.out.println(freq); 
     }
     
