@@ -151,6 +151,39 @@ private static void rotate90deg(int[][]arr){
     } 
 }
 
+private static void spiralDisplay(int[][] arr){
+    int n = arr.length , m = arr[0].length;
+    int minr = 0 , minc = 0 , maxr = n-1 , maxc = m-1;
+
+    int count = m*n;
+    while(count !=0){
+        for(int r = minr; r<=maxr && count > 0; r++){
+            System.out.println(arr[r][minc]); //left to down
+            count--;
+        }
+        minc++; // becoz ek element 2 times print na ho
+        
+        for(int c = minc; c<=maxc && count > 0; c++){  //down to right
+            System.out.println(arr[maxr][c]);
+            count--;
+        }
+        maxr--; // becoz ek element 2 times print na ho
+        
+        for(int r = maxr; r>=minr && count > 0; r--){  //right to up
+            System.out.println(arr[r][maxc]);
+            count--;
+        }
+        maxc--; // becoz ek element 2 times print na ho
+
+        
+        for(int c = maxc; c>=minc && count > 0; c--){  // right to left
+            System.out.println(arr[minr][c]);
+            count--;
+        }
+        minr++; // becoz ek element 2 times print na ho
+    }
+}
+
 
 public static void display(int[][]arr){
     for(int i = 0; i < arr.length; i++){
@@ -184,8 +217,8 @@ for(int i=0;i<arr.length;i++){
   // int data = scn.nextInt();
    //searchInSortedArray(arr,data);
    System.out.println();
-   rotate90deg(arr);
-   display(arr);
-
+   //rotate90deg(arr);
+  // display(arr);
+spiralDisplay(arr);
  }
 }
