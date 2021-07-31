@@ -26,12 +26,29 @@ return count;
      }
      return ans;
  }
+
+
+private static long anyBaseTodecimal(int num , int base){
+    long ans = 0 , p = 1;
+    while(num>0){
+        int dig = num % 10;
+        num = num/10;
+
+        ans = ans + dig*p;
+        p = p*base;
+    }
+    return ans;
+}
+
+
     public static void main(String[] args){
   int n = scn.nextInt();
-  int d = scn.nextInt();
+  int b = scn.nextInt();
  // int freq = digit_frequency(n, d);
-  long freq = decimalToAnyBase(n, d);
+  //long freq = decimalToAnyBase(n, b);
+   long freq = anyBaseTodecimal(n, b);
   System.out.println(freq); 
+
     }
     
 }
