@@ -7,9 +7,9 @@ public static String compression1(String str){ // Running Compression
   if(str.length() == 0) return "";
   char prevChar = str.charAt(0);
   int i = 1;
-  while(i <= str.length()){
-   int count = 1;
-   while(i<str.length() && prevChar == str.charAt(i)){
+  while(i <= str.length()){  // handle last two diff characters in String
+   int count = 1;  
+   while(i<str.length() && prevChar == str.charAt(i)){  // genral condition
        count++;
      prevChar = str.charAt(i);
      i++;
