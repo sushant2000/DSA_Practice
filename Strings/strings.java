@@ -83,6 +83,23 @@ public static void substringPalindrome(String str){
     }
 }
 
+//===========================================================================================
+
+   public static String consecutiveStringDiff( String str){
+       StringBuider sb = new StringBuilder();
+        sb.append(charAt(0));
+        for(int i = 1; i<<str.length(); i++){
+            char curr = charAt(i);
+            char prev = charAt(i-1);
+
+
+            sb.append(prev-curr);
+            sb.append(curr); 
+        }
+        return sb.toString();
+   }
+
+
 
 
  //=================MAIN FUNCTION============================================================
@@ -90,13 +107,16 @@ public static void main(String args[]){
 String str = scn.nextLine();
 //String str1 = compression1(str);
 //String str2 = compression2(str);
-String str3 = toggleString(str);
+//String str3 = toggleString(str);
 //substringPalindrome(str);
+Stirng str4 = consecutiveStringDiff(str);
 
 //System.out.println(str1);
 //System.out.println();
 //System.out.println(str2);
 //System.out.println();
-System.out.println(str3);
+//System.out.println(str3);
+
+System.out.println(str4);
  }
 }
