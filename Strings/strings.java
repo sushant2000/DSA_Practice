@@ -25,7 +25,11 @@ public static String compression1(String str){ // Running Compression
  return sb.toString();
 
 }
-public static String compression2(String str){ // Running length encoding compression
+
+//===============================================================================================================
+
+
+ public static String compression2(String str){ // Running length encoding compression
 StringBuilder sb = new StringBuilder();
 
 if(str.length() == 0) return "";
@@ -44,12 +48,55 @@ for(int i = 0; i<str.length(); i++){
 }
 
 
+//=========================================================================================
+
+public static String toggleString(String str){
+    StringBuilder sb = new StringBuilder();
+    if(str.length()==0) return "";
+
+    for(int i = 0; i<str.length(); i++){
+        char ch = str.charAt(i);
+        if(ch >= 'a' && ch <= 'z'){
+            sb.append((char)(ch + 'A' - 'a'));
+        }else
+            sb.append((char)(ch + 'a' - 'A'));
+    }
+    return sb.toString();
+}
+ //==============================================================================================
+
+  public static boolean isPalindrome(String str){
+      int i = 0 , j = str.length()-1;
+      while(i<j){
+          if(str.charAt(i++) != str.charAt(j--)) return false;
+      }
+      return true;
+  }
+
+
+public static void substringPalindrome(String str){
+    for(int i = 0; i<str.length(); i++){
+        for(int j = i; j<str.length(); j++){
+            String s = str.substring(i,j+1);
+            if(isPalindrome(s)) System.out.println(s);
+        }
+    }
+}
+
+
+
+ //=================MAIN FUNCTION============================================================
 public static void main(String args[]){
 String str = scn.nextLine();
-String str1 = compression1(str);
-String str2 = compression2(str);
-System.out.println(str1);
-System.out.println();
-System.out.println(str2);
+//String str1 = compression1(str);
+//String str2 = compression2(str);
+String str3 = toggleString(str);
+//substringPalindrome(str);
+
+//System.out.println(str1);
+//System.out.println();
+//System.out.println(str2);
+//System.out.println();
+System.out.println(str3);
  }
 }
