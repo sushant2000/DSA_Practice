@@ -86,11 +86,11 @@ public static void substringPalindrome(String str){
 //===========================================================================================
 
    public static String consecutiveStringDiff( String str){
-       StringBuider sb = new StringBuilder();
-        sb.append(charAt(0));
-        for(int i = 1; i<<str.length(); i++){
-            char curr = charAt(i);
-            char prev = charAt(i-1);
+       StringBuilder sb = new StringBuilder();
+        sb.append(str.charAt(0));
+        for(int i = 1; i < str.length(); i++){
+            char curr = str.charAt(i);
+            char prev = str.charAt(i-1);
 
 
             sb.append(prev-curr);
@@ -109,7 +109,7 @@ String str = scn.nextLine();
 //String str2 = compression2(str);
 //String str3 = toggleString(str);
 //substringPalindrome(str);
-Stirng str4 = consecutiveStringDiff(str);
+String str4 = consecutiveStringDiff(str);
 
 //System.out.println(str1);
 //System.out.println();
