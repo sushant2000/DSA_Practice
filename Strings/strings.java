@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 class strings{
 public static Scanner scn = new Scanner(System.in);
 
@@ -99,7 +100,31 @@ public static void substringPalindrome(String str){
         return sb.toString();
    }
 
+//===========================================================================================
 
+public static ArrayList <String>  permutation_String(String str){
+    ArrayList <String> ans = new ArrayList<>();
+    ans.add(str.charAt(0) + "");
+
+    for(int i = 1; i<str.length(); i++){
+        char ch = str.charAt(i);
+        ArrayList <String> temp = new ArrayList<>();
+        for(String s : ans){
+            for(int j = 0; j<= s.length(); j++){
+                String res = s.substring(0,j) + ch + s.substring(j);
+                temp.add(res);
+            }
+        }
+        ans = temp;
+    }
+    return ans;
+}
+
+public static void display(ArrayList<String> list){
+    for(String elm : list){
+        System.out.println(elm);
+    }
+}
 
 
  //=================MAIN FUNCTION============================================================
@@ -109,7 +134,7 @@ String str = scn.nextLine();
 //String str2 = compression2(str);
 //String str3 = toggleString(str);
 //substringPalindrome(str);
-String str4 = consecutiveStringDiff(str);
+//String str4 = consecutiveStringDiff(str);
 
 //System.out.println(str1);
 //System.out.println();
@@ -117,6 +142,8 @@ String str4 = consecutiveStringDiff(str);
 //System.out.println();
 //System.out.println(str3);
 
-System.out.println(str4);
+ArrayList<String> final_ans = permutation_String(str);
+display(final_ans);
+
  }
 }
