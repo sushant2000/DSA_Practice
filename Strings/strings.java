@@ -127,6 +127,17 @@ public static void display(ArrayList<String> list){
 }
 
 
+//===========================================================================================
+
+public static void printAllSubstring(String str){
+    for(int i = 0; i<str.length(); i++){        //O(n)
+        for(int j = i; j<str.length(); j++){     //O(n)
+            String s = str.substring(i,j+1);     //O(n)
+            System.out.println(s);
+        }  //total O(n3)
+    }
+}
+
  //=================MAIN FUNCTION============================================================
 public static void main(String args[]){
 String str = scn.nextLine();
@@ -142,8 +153,10 @@ String str = scn.nextLine();
 //System.out.println();
 //System.out.println(str3);
 
-ArrayList<String> final_ans = permutation_String(str);
-display(final_ans);
+//ArrayList<String> final_ans = permutation_String(str);
+//display(final_ans);
+
+
 
  }
 }
