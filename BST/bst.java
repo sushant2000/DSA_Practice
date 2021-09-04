@@ -66,4 +66,18 @@ public static class bst{
                Collections.reverse(list);
                return list;
        }
+
+
+public static int lca (Node node , int d1 , int d2){
+    int lca = -1;
+    while(node != null){
+        if(d1<node.data && d2 < node.data) node = node.left;
+        else if(d1 >node.data  && d2 > node.data) node = node.right;
+        else {
+            lca = node.data;
+            break;
+    }
+    }
+    return lca;
+}
     }
