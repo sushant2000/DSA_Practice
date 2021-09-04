@@ -25,30 +25,29 @@ public static class bst{
            if(node == null) return 0;
            while(node.right != null){
                node = node.right;
-
-               return node.data;
            }
+               return node.data;
        }
         
-       public static int maximum(Node node){
+ public static int minimum(Node node){
            if(node == null) return 0;
            while(node.left != null){
                node = node.left;
-
-               return node.data;
            }
+               return node.data;
        }
 
-       public static boolean find(Node node , int data){
+public static boolean find(Node node , int data){
            while(node != null){
                if(node.data == data) return true;
                else if (node.data < data) node = node.right;
                else node = node.left;
            }
            return false;
-       }
+}
 
-       public static ArrayList<Node> nodeTOrootPath(Node node , int data){
+
+ public static ArrayList<Node> nodeTOrootPath(Node node , int data){
            ArrayList<Node> list = new ArrayList<>();
            boolean flag = false;
            while(node ! = null){
@@ -79,5 +78,43 @@ public static int lca (Node node , int d1 , int d2){
     }
     }
     return lca;
+}
+
+public static void printInRange(Node node int lr , int rr){
+    if(node == null) return;
+
+    printInRange(node.left ,lr, rr)
+
+    if(node.data >= lr && node.data <= rr)
+    System.out.print(node.data);
+
+    printInRange(node.right , lr , rr);
+}
+
+public static node addNodeInbst(Node node , int data){
+    if(node == null) return new node(data);
+
+    if(Node.data < data) node.right = addNodeInbst(node.right , data);
+    else
+    node.left = addNodeInbst(node.left , data);
+    return node;
+  }
+
+  public static node removeNodeInBst(Node node , int data){
+      if(node == null) return null;
+      if(node.data < data)
+      node.right = removeNodeInBst(node.right , data);
+      else if(node.data > data)
+      node.left = removeNodeInBst(node.left , data);
+      else{
+          if(node.left == null || node.right == null)
+          return node.left != null ? node.left : node.right;
+
+          int minele = minimum(node.right);
+          node.data = minele
+
+          node.right = removeNodeInBst(node.right , minele);
+      }
+      return node;
 }
     }
