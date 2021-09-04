@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
 public static class bst{
     public static Scanner scn = new Scanner(system.in)
     public static class Node{
@@ -44,5 +46,24 @@ public static class bst{
                else node = node.left;
            }
            return false;
+       }
+
+       public static ArrayList<Node> nodeTOrootPath(Node node , int data){
+           ArrayList<Node> list = new ArrayList<>();
+           boolean flag = false;
+           while(node ! = null){
+               list.add(node);
+               if(node.data == data){
+                   flag = true;
+                   break;
+               }else if(node.data < data){
+                   node = node.right;
+               }else{
+                   node = node.left;
+               }
+           }
+               if(!flag) list.clear();
+               Collections.reverse(list);
+               return list;
        }
     }
