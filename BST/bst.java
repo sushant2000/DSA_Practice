@@ -117,4 +117,30 @@ public static node addNodeInbst(Node node , int data){
       }
       return node;
 }
+
+public static void inOrder(Node node , ArrayList<Integer> list){
+    if(node == null) return;
+    inOrder(node.left , list);
+    list.add(node.data);
+    inOrder(node.right , list);
+}
+
+public static void targetSum(Node node , int tar){
+    ArrayList<Integer> list = new ArrayList<>();
+    inOrder(node,list);
+    int i = 0 , j = list.size() - 1;
+    while(i < j){
+        int sum = list.get(i) + list.gey(j);
+        if(sum < tar) i++;
+        else if(sum > tar) j--;
+        else{
+            System.out.print(list.get(i) + " " + list.get(j));
+            i++;
+            j--;
+        }
+        return node;
+    }
+}
+
+
     }
