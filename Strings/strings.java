@@ -138,9 +138,93 @@ public static void printAllSubstring(String str){
     }
 }
 
+//=============================Question=====================================================
+//input mein se first two places se x remove karke print karna h string
+
+public static String removeX(String str){
+    StringBuilder sb = new StringBuilder();
+    for(int i = 0; i<str.length(); i++){
+       char ch = str.charAt(i);
+       if(i < 2 && str.charAt(i)!= 'x'){
+           sb.append(str.charAt(i));
+       }if(i>=2){
+           sb.append(str.charAt(i));
+       }
+}
+    return sb.toString();
+}
+
+//==============================Leetcode 541=================================================
+public static void stringSwap(char[] arr , int i , int j){
+  while(i < j){
+    char ch = arr[i];
+    arr[i] = arr[j];
+    arr[j] = ch;
+
+    i++;
+    j--;
+  }
+}
+
+public static Stirng reverseString(Stirng s , int k ){
+    if(k == 0 || k == 1 || s.length()<=1) return s;
+
+    int i = 0 , n = s.length();
+    char[] arr = s.toCharArray();
+    while(i < n){
+        if(i + k - 1 < n){
+            stringSwap(arr , i , i + k -1);
+            i+= 2 * k;
+        }else{
+            stringSwap(arr , i , n-1);  //when left elements are less than k
+            break;
+        }
+    }
+
+
+
+    return new String(arr);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //=================MAIN FUNCTION============================================================
 public static void main(String args[]){
-String str = scn.nextLine();
+int t = scn.nextInt();    
+scn.nextLine();
 //String str1 = compression1(str);
 //String str2 = compression2(str);
 //String str3 = toggleString(str);
@@ -156,7 +240,10 @@ String str = scn.nextLine();
 //ArrayList<String> final_ans = permutation_String(str);
 //display(final_ans);
 
-
-
+while(t-- > 0){
+String str = scn.nextLine();
+String s = removeX(str);
+System.out.println(s);
+}
  }
 }
