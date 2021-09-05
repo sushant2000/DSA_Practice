@@ -1,4 +1,4 @@
-import java.util.Scanner;
+    import java.util.Scanner;
 public class anybasesubtraction{
     public static Scanner scn = new Scanner(System.in);
 
