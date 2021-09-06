@@ -69,7 +69,7 @@ public static ArrayList<Node> rootToNodePath(Node node , int data , ArrayList<No
     if(res) res.add(node);
     Collections.reverse(list);
     return list;
-
+}
     //Another Approach
     public static ArrayList<Integer> rootToNodePath2(Node node , int data){
         if(node.data == data)
@@ -89,9 +89,36 @@ public static ArrayList<Node> rootToNodePath(Node node , int data , ArrayList<No
 
         }
     }
+
+public static int lcaOfGt(Node node , int d1 , int d2){
+    ArrayList<Integer> list1 = rootToNodePath2(node , d1);
+    ArrayList<Integer> list2  = rootToNodePath2(node , d2);
+
+    int i = list1.size()-1;
+    int j = list2.size()-1;
+ while(i >= 0 && j >= 0 && list1.get(i) == list2.get(j)){
+     i--;
+     j--;
+   }
+      i++;
+      j++;
+      return list1.get(i);
 }
 
 
+public static int distanceBetweenTwoNodes(Node node , int d1 , int d2){
+    ArrayList<Integer> list1 =  rootToNodePath2(node , d1);
+    ArrayList<Integer> list2  = rootToNodePath2(node , d2);
 
+    int i = list1.size()-1;
+    int j = list2.size()-1;
+ while(i >= 0 && j >= 0 && list1.get(i) == list2.get(j)){
+     i--;
+     j--;
+   }
+      i++;
+      j++;
+      return i + j; // if asked in number of edges;  // if they want in no. of nodes return i + j + 1;
+}
 
 }
